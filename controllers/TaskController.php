@@ -3,20 +3,20 @@
 
 namespace app\controllers;
 
+use app\models\tables\Tasks;
 use yii\web\Controller;
-
 
 class TaskController extends Controller
 {
         public function actionIndex() {
-            return $this->render('index');
+
+            $tasks = Tasks::find()->all();
+            var_dump($tasks);
+
+           //return $this->render('index', ['tasks' => $tasks]);
         }
 
-        public function actionTasks() {
-            return $this->render('tasks');
-        }
-
-        public function actionTaskDetail() {
+        public function actionTaskDetail($id) {
             return $this->render('task-detail');
         }
 }
